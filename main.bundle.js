@@ -16,7 +16,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"page-translator\" (@routerTransition.done)=\"routerTransitionDone($event)\" [@routerTransition]=\"getState(o)\">\r\n    <router-outlet #o=\"outlet\"></router-outlet>\r\n</main>\r\n<div class=\"app-loader\" [ngClass]=\"{'loading': isLoading }\">\r\n\r\n</div>\r\n\r\n<div class=\"svd-modal\" [ngClass]=\"{'hidden': statusModal.showStatusModal === false }\">\r\n    <div class=\"svd-modal-overlay\"></div>\r\n    <div class=\"svd-modal-content\">\r\n        <div class=\"svd-table-cell\">\r\n            <div class=\"center-div\">\r\n                <div class=\"svd-modal-title\" *ngIf=\"statusModal.title\">\r\n                    {{ statusModal.title }}\r\n                </div>\r\n                <div class=\"font-{{ statusModal.modalStatus }}\">\r\n                    {{statusModal.content }}\r\n                </div>\r\n                <div class=\"svd-modal-footer\">\r\n                    <button class=\"btn btn-danger\" type=\"button\" (click)=\"statusModal.showStatusModal = false;\"> close </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<main class=\"page-translator\" (@routerTransition.done)=\"routerTransitionDone($event)\" [@routerTransition]=\"getState(o)\">\r\n    <router-outlet #o=\"outlet\"></router-outlet>\r\n</main>\r\n<div class=\"app-loader\" [ngClass]=\"{'loading': isLoading }\">\r\n\r\n</div>\r\n\r\n<div class=\"svd-modal\" [ngClass]=\"{'hidden': statusModal.showStatusModal === false }\">\r\n    <div class=\"svd-modal-overlay\"></div>\r\n    <div class=\"svd-modal-content\">\r\n        <div class=\"svd-table-cell\">\r\n            <div class=\"center-div\">\r\n                <div class=\"svd-modal-title\" *ngIf=\"statusModal.title\">\r\n                    {{ statusModal.title }}\r\n                </div>\r\n                <div class=\"font-{{ statusModal.modalStatus }}\">\r\n                    {{statusModal.content }}\r\n                </div>\r\n                <div class=\"svd-modal-footer\">\r\n                    <button class=\"btn btn-danger button is-primary\" type=\"button\" (click)=\"statusModal.showStatusModal = false;\"> close </button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -28,7 +28,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-loader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100vw;\n  background-color: black;\n  opacity: .5;\n  display: none;\n}\n.app-loader.loading {\n  display: block;\n}\n", ""]);
+exports.push([module.i, ".app-loader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  min-height: 100vh;\n  width: 100vw;\n  background-color: black;\n  opacity: .5;\n  display: none;\n}\n.app-loader.loading {\n  display: block;\n}\n", ""]);
 
 // exports
 
@@ -79,6 +79,7 @@ var AppComponent = (function () {
         this.title = 'svd';
         this.pageTransition = '';
         this.isLoading = true;
+        this.isDesktop = false;
         this.statusModal = {
             title: null,
             modalStatus: 'success',
@@ -112,6 +113,9 @@ var AppComponent = (function () {
             this.statusModal.title = null;
         }
         this.statusModal.showStatusModal = true;
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.isDesktop = window.innerWidth <= 1024 ? false : true;
     };
     return AppComponent;
 }());
@@ -174,12 +178,16 @@ var _a, _b, _c, _d, _e, _f;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_company_details_company_details_component__ = __webpack_require__("../../../../../src/app/components/company-details/company-details.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_service_areas_service_areas_component__ = __webpack_require__("../../../../../src/app/components/service-areas/service-areas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/components/reset-password/reset-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_change_password_change_password_component__ = __webpack_require__("../../../../../src/app/components/change-password/change-password.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -241,7 +249,9 @@ var deps = [
     __WEBPACK_IMPORTED_MODULE_35__components_create_account_nameaddress_create_account_nameaddress_component__["a" /* CreateAccountNameaddressComponent */],
     __WEBPACK_IMPORTED_MODULE_36__components_company_details_company_details_component__["a" /* CompanyDetailsComponent */],
     __WEBPACK_IMPORTED_MODULE_37__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
-    __WEBPACK_IMPORTED_MODULE_38__components_service_areas_service_areas_component__["a" /* ServiceAreasComponent */]
+    __WEBPACK_IMPORTED_MODULE_38__components_service_areas_service_areas_component__["a" /* ServiceAreasComponent */],
+    __WEBPACK_IMPORTED_MODULE_39__components_reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
+    __WEBPACK_IMPORTED_MODULE_40__components_change_password_change_password_component__["a" /* ChangePasswordComponent */]
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -452,7 +462,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".modal-pro-content .state-list-item,\n.modal-pro-content .county-list-item {\n  padding-left: 10px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  cursor: pointer;\n}\n.contry-field {\n  color: #aaa;\n}\n.contry-field .country-item.checked {\n  border-bottom: 1px solid #00A153;\n  color: #00A153;\n  box-shadow: 0px 3px 4px -3px #00A153;\n}\n.form-control {\n  border-radius: 0;\n  border-top: none;\n  border-left: none;\n  border-right: none;\n  background-color: transparent;\n  padding-left: 3px;\n}\n.form-control.last-control {\n  border-top: 1px solid #ced4da;\n  border-bottom: none;\n}\n.form-control:focus {\n  box-shadow: 0 4px 2px -4px #00A153;\n}\n", ""]);
+exports.push([module.i, ".contry-field {\n  color: #aaa;\n}\n.contry-field .country-item.checked {\n  border-bottom: 1px solid #00A153;\n  color: #00A153;\n  box-shadow: 0px 3px 4px -3px #00A153;\n}\n.form-control {\n  border-radius: 0;\n  border-top: none;\n  border-left: none;\n  border-right: none;\n  background-color: transparent;\n  padding-left: 3px;\n}\n.form-control.last-control {\n  border-top: 1px solid #ced4da;\n  border-bottom: none;\n}\n.form-control:focus {\n  box-shadow: 0 4px 2px -4px #00A153;\n}\n", ""]);
 
 // exports
 
@@ -612,6 +622,87 @@ AddressNewEditComponent = __decorate([
 
 var _a, _b, _c, _d;
 //# sourceMappingURL=address-new-edit.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/change-password/change-password.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-section\">\r\n    <div class=\"container-fluid\">\r\n        <form #changePassword=\"ngForm\" class=\"pl-3 pr-3 pt-1\" (submit)=\"changePasswordFn()\">\r\n            <div class=\"form-field\">\r\n                <div class=\"\">\r\n                    <label>Email</label>\r\n                </div>\r\n                <input [(ngModel)]=\"changePassword.email\" type=\"text\" pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" required class=\"txt-input\" #email name=\"email\" id=\"email\" />\r\n            </div>\r\n            <div class=\"form-field\" *ngIf=\"isAnonymous\">\r\n                <div class=\"\">\r\n                    <label>Authentication Code</label>\r\n                </div>\r\n                <input [(ngModel)]=\"changePassword.authToken\" type=\"password\" required class=\"txt-input\" #authToken name=\"authToken\" id=\"authToken\" />\r\n            </div>\r\n            <div class=\"form-field\" *ngIf=\"isAnonymous === false\">\r\n                <div class=\"\">\r\n                    <label>Current password</label>\r\n                </div>\r\n                <input [(ngModel)]=\"changePassword.currentPassword\" type=\"password\" required class=\"txt-input\" #currentPassword name=\"currentPassword\" id=\"currentPassword\" />\r\n            </div>\r\n            <div class=\"form-field\">\r\n                <div class=\"\">\r\n                    <label>New password</label>\r\n                </div>\r\n                <input [(ngModel)]=\"changePassword.password\" type=\"password\" required class=\"txt-input\" #password name=\"password\" id=\"password\" />\r\n            </div>\r\n            <div class=\"form-field\">\r\n                <div class=\"\">\r\n                    <label>Confirm new password</label>\r\n                </div>\r\n                <input [(ngModel)]=\"changePassword.confirmpassword\" type=\"text\" required class=\"txt-input\" #confirmpassword name=\"confirmpassword\" id=\"confirmpassword\" />\r\n            </div>\r\n            <div class=\"mt-1\">\r\n                <button type=\"submit\" class=\"button btn-submit is-success\" [disabled]=\"changePassword.invalid\"> RESET PASSWORD </button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/change-password/change-password.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".form-field:after,\n.form-field:before {\n  clear: both;\n}\n.form-field label {\n  color: white;\n}\n.form-field .txt-input {\n  display: block;\n  width: 100%;\n  padding: .375rem .75rem;\n  font-size: 1rem;\n  line-height: 1.5;\n  color: #495057;\n  background-color: #fff;\n  background-image: none;\n  background-clip: padding-box;\n  border: 1px solid #ced4da;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n.btn-submit {\n  background-color: #00823F;\n  width: 100%;\n  font-weight: bold;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/change-password/change-password.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangePasswordComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__ = __webpack_require__("../../../../../src/app/services/auxilary.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__ = __webpack_require__("../../../../../src/app/services/data/session.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ChangePasswordComponent = (function () {
+    function ChangePasswordComponent(app, session, aux) {
+        this.app = app;
+        this.session = session;
+        this.aux = aux;
+        this.changePassword = {};
+        this.isAnonymous = true;
+    }
+    ChangePasswordComponent.prototype.ngOnInit = function () {
+        if (this.session.get('user')) {
+            this.isAnonymous = false;
+        }
+    };
+    ChangePasswordComponent.prototype.changePasswordFn = function () {
+        this.aux.changePassword(this.changePassword).then(function (_a) {
+            var err = _a.err, resp = _a.resp;
+        });
+    };
+    return ChangePasswordComponent;
+}());
+ChangePasswordComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-change-password',
+        template: __webpack_require__("../../../../../src/app/components/change-password/change-password.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/change-password/change-password.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__["a" /* SessionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__["a" /* SessionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__["a" /* AuxilaryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__["a" /* AuxilaryService */]) === "function" && _c || Object])
+], ChangePasswordComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=change-password.component.js.map
 
 /***/ }),
 
@@ -1380,7 +1471,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".modal-pro-content .state-list-item,\n.modal-pro-content .county-list-item {\n  padding-left: 10px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  cursor: pointer;\n}\n.contry-field {\n  color: #aaa;\n}\n.contry-field .country-item.checked {\n  border-bottom: 1px solid #00A153;\n  color: #00A153;\n  box-shadow: 0px 3px 4px -3px #00A153;\n}\n.field-hint {\n  color: #D9D9D9;\n  font-size: 14px;\n}\n", ""]);
+exports.push([module.i, ".contry-field {\n  color: #aaa;\n}\n.contry-field .country-item.checked {\n  border-bottom: 1px solid #00A153;\n  color: #00A153;\n  box-shadow: 0px 3px 4px -3px #00A153;\n}\n.field-hint {\n  color: #D9D9D9;\n  font-size: 14px;\n}\n", ""]);
 
 // exports
 
@@ -1573,7 +1664,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/components/create-account-password/create-account-password.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-section no-bg\">\r\n  <div class=\"container-fluid  page-head-section\">\r\n    <div class=\"row pt-1\">\r\n      <button class=\"button is-text btn-back\" (click)=\"app.navigateByUrl('/login', 'slideright')\">BACK</button>\r\n    </div>\r\n    <div class=\"hero-title text-center\">\r\n        To get started, please create a new account using your email address.\r\n    </div>\r\n  </div>\r\n  <div class=\"mt-1\">\r\n    <form #passwordForm=\"ngForm\" (ngSubmit)=\"createAccount(passwordForm)\">\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" type=\"email\" id=\"email\" required name=\"email\" [(ngModel)]=\"user.email\"\r\n          #email=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"email\">Email</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" type=\"password\" id=\"password\" required name=\"password\" [(ngModel)]=\"user.password\"\r\n          #password=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"password\">Password</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"field-hint mt-1\">Passwords must be a minimum of 6 characters</div>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" type=\"password\" id=\"confirmpassword\" required name=\"confirmpassword\" [(ngModel)]=\"user.confirmpassword\"\r\n          #confirmpassword=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"confirmpassword\">Re-enter Password</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"checkbox mt-1\">\r\n        <label class=\"flex flex-center\">\r\n          <input type=\"checkbox\" id=\"iagree\" required name=\"iagree\" [(ngModel)]=\"user.iagree\" #iagree=\"ngModel\" />\r\n          I agree to the terms & conditions\r\n        </label>\r\n      </div>\r\n      <div class=\"mt-2 flex space-around\">\r\n        <button [disabled]=\"passwordForm.invalid || loadSpinner\" type=\"sumbit\" class=\"button is-success\">\r\n          <i *ngIf=\"loadSpinner\" class=\"fa fa-spinner fa-spin mr-1\"></i> CREATE MY ACCOUNT </button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"page-section no-bg\">\r\n  <div class=\"container-fluid  page-head-section\">\r\n    <div class=\"row\">\r\n      <button class=\"button is-text btn-back\" (click)=\"app.navigateByUrl('/login', 'slideright')\">BACK</button>\r\n    </div>\r\n    <div class=\"hero-title text-center\">\r\n        To get started, please create a new account using your email address.\r\n    </div>\r\n  </div>\r\n  <div class=\"mt-1\">\r\n    <form #passwordForm=\"ngForm\" (ngSubmit)=\"createAccount(passwordForm)\" *ngIf=\"!app.isDesktop\">\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" type=\"email\" id=\"email\" required name=\"email\" [(ngModel)]=\"user.email\"\r\n          #email=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"email\">Email</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" type=\"password\" id=\"password\" required name=\"password\" [(ngModel)]=\"user.password\"\r\n          #password=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"password\">Password</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"field-hint mt-1\">Passwords must be a minimum of 6 characters</div>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" type=\"password\" id=\"confirmpassword\" required name=\"confirmpassword\" [(ngModel)]=\"user.confirmpassword\"\r\n          #confirmpassword=\"ngModel\" />\r\n        <label class=\"control-label\" for=\"confirmpassword\">Re-enter Password</label>\r\n        <i class=\"bar\"></i>\r\n      </div>\r\n      <div class=\"checkbox mt-1\">\r\n        <label class=\"flex flex-center\">\r\n          <input type=\"checkbox\" id=\"iagree\" required name=\"iagree\" [(ngModel)]=\"user.iagree\" #iagree=\"ngModel\" />\r\n          I agree to the terms & conditions\r\n        </label>\r\n      </div>\r\n      <div class=\"mt-2 flex space-around\">\r\n        <button [disabled]=\"passwordForm.invalid || loadSpinner\" type=\"sumbit\" class=\"button is-success\">\r\n          <i *ngIf=\"loadSpinner\" class=\"fa fa-spinner fa-spin mr-1\"></i> CREATE MY ACCOUNT </button>\r\n      </div>\r\n    </form>\r\n    <div class=\"tblContainer\" *ngIf=\"app.isDesktop\">\r\n            <form #passwordForm=\"ngForm\" (ngSubmit)=\"createAccount(passwordForm)\">\r\n                <table class=\"tbl\">\r\n                    <tr>\r\n                        <td>\r\n                            Email\r\n                        </td>\r\n                        <td>\r\n                            <input type=\"text\" pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" placeholder=\"Enter email\" type=\"email\" id=\"email\" required name=\"email\" [(ngModel)]=\"user.email\" #email=\"ngModel\" />                            \r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            Password\r\n                        </td>\r\n                        <td>\r\n                            <input type=\"text\" placeholder=\"Enter password\" type=\"password\" id=\"password\" required name=\"password\" [(ngModel)]=\"user.password\" #password=\"ngModel\" />                \r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td colspan=\"2\">\r\n                            <span class=\"field-hint\">Passwords must be a minimum of 6 characters</span>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            Re-enter Password\r\n                        </td>\r\n                        <td>\r\n                            <input type=\"text\" placeholder=\"Re-enter password\" type=\"password\" id=\"confirmpassword\" required name=\"confirmpassword\" [(ngModel)]=\"user.confirmpassword\" #confirmpassword=\"ngModel\" />\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td colspan=\"2\">\r\n                            <label for=\"iagree\" class=\"pl-0 flex flex-center\">\r\n                                <input class=\"placeholder\" class=\"mr-1 i-agree\" type=\"checkbox\" id=\"iagree\" required name=\"iagree\" [(ngModel)]=\"user.iagree\" #iagree=\"ngModel\" />\r\n                                I agree to the terms & conditions\r\n                            </label>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n                <div class=\"mt-2 flex space-around\">\r\n                    <button [disabled]=\"passwordForm.invalid || loadSpinner\" type=\"sumbit\" class=\"button btn prime col-8 offset-2\"><i *ngIf=\"loadSpinner\" class=\"fa fa-spinner fa-spin mr-1\"></i> CREATE MY ACCOUNT </button>\r\n                </div>\r\n            </form>\r\n        </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1944,7 +2035,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-section page-section\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"flex space-around pt-3\">\r\n            <div style=\"flex: 0 1 51%;\">\r\n                <img class=\"login-logo\" src=\"assets/img/uplogo.png\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"flex space-around\">\r\n            <div class=\"mt-1\" style=\"flex: 0 1 80%;\">\r\n                <form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\r\n                    <div class=\"form-group \">\r\n                        <input pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" placeholder=\"Enter email\" type=\"email\" class=\"form-control\" id=\"email\" required name=\"email\" [(ngModel)]=\"user.email\" #email=\"ngModel\" />\r\n                    </div>\r\n                    <div class=\"form-group mt-1\">\r\n                        <input placeholder=\"Enter password\" type=\"password\" class=\"form-control\" id=\"password\" required name=\"password\" [(ngModel)]=\"user.password\" #password=\"ngModel\" />\r\n                    </div>\r\n                    <div class=\"mt-1 flex space-around\">\r\n                        <button [disabled]=\"loginForm.invalid || formSubmitted\" type=\"sumbit\" class=\"button is-success col-8 offset-2\" style=\"background-color:green;\"><i *ngIf=\"formSubmitted\" class=\"fa fa-spinner fa-spin mr-1\"></i> SIGN IN </button>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n        <div class=\"flex space-around\">\r\n            <div class=\"mt-3\">\r\n                <a class=\"btn btn-link btn-create-account\" (click)=\"app.navigateByUrl('/create-account-type', 'slideleft')\">Create an account</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"login-section page-section\">\r\n    <div>\r\n\r\n    </div>\r\n    <div class=\"container-fluid full-height flex-row flex-dir-col space-between\">\r\n        <div>\r\n            <div class=\"flex space-around pt-3\">\r\n                <div style=\"flex: 0 1 51%;\">\r\n                    <img class=\"login-logo\" src=\"assets/img/uplogo.png\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"flex flex-dir-col space-around\">\r\n                <div class=\"mt-1 pl-2 pr-2\">\r\n                    <form #loginForm=\"ngForm\" (ngSubmit)=\"login(loginForm)\">\r\n                        <div class=\"form-group \">\r\n                            <label>Email</label>\r\n                            <input pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\"  type=\"email\" class=\"form-control\" id=\"email\" required name=\"email\" [(ngModel)]=\"user.email\" #email=\"ngModel\" />\r\n                        </div>\r\n                        <div class=\"form-group mt-1\">\r\n                            <label>Password</label>\r\n                            <input type=\"password\" class=\"form-control\" id=\"password\" required name=\"password\" [(ngModel)]=\"user.password\" #password=\"ngModel\" />\r\n                        </div>\r\n                        <div class=\"mt-1 flex space-around\">\r\n                            <button [disabled]=\"loginForm.invalid || formSubmitted || user.password.length < 6\" type=\"sumbit\" class=\"button is-success btn-login\"><i *ngIf=\"formSubmitted\" class=\"fa fa-spinner fa-spin mr-1\"></i> SIGN IN </button>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n                <div class=\"flex space-around mt-1\">\r\n                    <a class=\"btn btn-link btn-trouble-signin\" (click)=\"app.navigateByUrl('/reset-password', 'slideleft')\">Trouble signing in?</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"flex space-around create-account-section\">\r\n            <div class=\"table-d pos-rel\">\r\n                <div class=\"mask\"></div>\r\n                <div class=\"table-cell\">\r\n                    <div class=\"center-div\">\r\n                        <a class=\"btn btn-link btn-create-account button is-text white\" (click)=\"app.navigateByUrl('/create-account-type', 'slideleft')\">Create an account</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1956,7 +2047,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".login-section {\n  background: linear-gradient(11deg, white -26%, #37C444 54%);\n}\n.login-section .logo-container .login-logo {\n  max-width: 100%;\n}\n.login-section .section-create-account {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background-color: transparent;\n  text-align: center;\n  height: 60px;\n}\n.login-section .section-create-account .div-opacity {\n  opacity: .3;\n  background-color: black;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  z-index: 0;\n}\n.login-section .section-create-account .btn-container {\n  position: absolute;\n  z-index: 3;\n  height: 100%;\n  width: 100%;\n  padding-top: 12px;\n}\n.login-section .section-create-account .btn-container .btn-create-account {\n  color: white;\n  text-decoration: underline;\n}\n", ""]);
+exports.push([module.i, ".login-section {\n  background: linear-gradient(11deg, white -26%, #37C444 54%);\n  background-image: url('/assets/img/andriod_login_background.png');\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: bottom;\n}\n.login-section .logo-container .login-logo {\n  max-width: 100%;\n}\n.login-section .is-success {\n  background-color: #00823F;\n  width: 100%;\n  border-radius: 0;\n  font-weight: bold;\n}\n.login-section .form-group label {\n  color: white;\n}\n.login-section .form-group .form-control {\n  background-color: #D9F5D8;\n}\n.login-section .form-control {\n  border-radius: 0;\n}\n.login-section .button.is-text.white {\n  color: white;\n}\n.login-section .button.btn-login {\n  height: 50px;\n}\n.login-section .create-account-section {\n  height: 52px;\n}\n.login-section .mask {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  opacity: 0.2;\n  left: 0;\n  top: 0;\n}\n", ""]);
 
 // exports
 
@@ -1973,10 +2064,9 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auxilary_service__ = __webpack_require__("../../../../../src/app/services/auxilary.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_data_session_service__ = __webpack_require__("../../../../../src/app/services/data/session.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auxilary_service__ = __webpack_require__("../../../../../src/app/services/auxilary.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_data_session_service__ = __webpack_require__("../../../../../src/app/services/data/session.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1991,23 +2081,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var LoginComponent = (function () {
     function LoginComponent(app, aux, session, router) {
         this.app = app;
         this.aux = aux;
         this.session = session;
         this.router = router;
-        this.user = {};
+        this.user = {
+            password: ''
+        };
         this.formSubmitted = false;
+        this.passwordInvalid = true;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */]['preLoad']) {
-            this.user = {
-                email: 'muralikrishna8811+cp1509751073509@gmail.com',
-                password: 'password'
-            };
-        }
     };
     LoginComponent.prototype.login = function (form) {
         var _this = this;
@@ -2055,7 +2141,7 @@ LoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/login/login.component.less")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_auxilary_service__["a" /* AuxilaryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auxilary_service__["a" /* AuxilaryService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__services_data_session_service__["a" /* SessionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_data_session_service__["a" /* SessionService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_auxilary_service__["a" /* AuxilaryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auxilary_service__["a" /* AuxilaryService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_data_session_service__["a" /* SessionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_data_session_service__["a" /* SessionService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
 ], LoginComponent);
 
 var _a, _b, _c, _d;
@@ -2579,6 +2665,83 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/reset-password/reset-password.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-section\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"flex space-around pt-3\">\r\n            <div style=\"flex: 0 1 51%;\">\r\n                <img class=\"login-logo\" src=\"assets/img/uplogo.png\" />\r\n            </div>\r\n        </div>\r\n        <div class=\"pl-3 pr-3 white mt-1\">\r\n            Trouble signing in?\r\n        </div>\r\n        <div class=\"pl-3 pr-3 white mt-1\">\r\n            Enter your email address and we will help you reset your password.\r\n        </div>\r\n\r\n        <form #resetPassword=\"ngForm\" class=\"pl-3 pr-3 pt-1\" (submit)=\"resetPasswordEmail()\">\r\n            <div class=\"form-field\">\r\n                <div class=\"\">\r\n                    <label>Email</label>\r\n                </div>\r\n                <input [(ngModel)]=\"emailToReset\" type=\"text\" pattern=\"^[a-zA-Z]+[a-zA-Z0-9.+]*@[a-zA-Z]+\\.\\w*$\" required class=\"txt-input\" #email name=\"email\" id=\"email\" />\r\n            </div>\r\n            <div class=\"mt-1\">\r\n                <button type=\"submit\"  class=\"button btn-resetpassword is-success\" [disabled]=\"resetPassword.invalid\"> RESET PASSWORD </button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/reset-password/reset-password.component.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".form-field:after,\n.form-field:before {\n  clear: both;\n}\n.form-field label {\n  color: white;\n}\n.form-field .txt-input {\n  display: block;\n  width: 100%;\n  padding: .375rem .75rem;\n  font-size: 1rem;\n  line-height: 1.5;\n  color: #495057;\n  background-color: #fff;\n  background-image: none;\n  background-clip: padding-box;\n  border: 1px solid #ced4da;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n.btn-resetpassword {\n  background-color: #00823F;\n  width: 100%;\n  font-weight: bold;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/reset-password/reset-password.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResetPasswordComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__ = __webpack_require__("../../../../../src/app/services/auxilary.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__ = __webpack_require__("../../../../../src/app/services/data/session.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ResetPasswordComponent = (function () {
+    function ResetPasswordComponent(app, session, aux) {
+        this.app = app;
+        this.session = session;
+        this.aux = aux;
+        this.emailToReset = 'muralikrishna8811+cp1509751073509@gmail.com';
+    }
+    ResetPasswordComponent.prototype.ngOnInit = function () {
+    };
+    ResetPasswordComponent.prototype.resetPasswordEmail = function () {
+        this.aux.resetPassword({
+            email: this.emailToReset
+        });
+    };
+    return ResetPasswordComponent;
+}());
+ResetPasswordComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-reset-password',
+        template: __webpack_require__("../../../../../src/app/components/reset-password/reset-password.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/reset-password/reset-password.component.less")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__["a" /* SessionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_data_session_service__["a" /* SessionService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__["a" /* AuxilaryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auxilary_service__["a" /* AuxilaryService */]) === "function" && _c || Object])
+], ResetPasswordComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=reset-password.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/service-areas/service-areas.component.html":
 /***/ (function(module, exports) {
 
@@ -2594,7 +2757,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".select-list-item {\n  padding-left: 15px;\n  padding-top: 6px;\n  padding-bottom: 6px;\n  position: relative;\n}\n.select-list-item .fa-check {\n  display: none;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n.select-list-item.selected .fa-check {\n  display: inline;\n}\n.modal-pro-content .county-list-item {\n  padding-left: 10px;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".select-list-item {\n  padding-left: 15px;\n  padding-top: 6px;\n  padding-bottom: 6px;\n  position: relative;\n}\n.select-list-item .fa-check {\n  display: none;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n.select-list-item.selected .fa-check {\n  display: inline;\n}\n", ""]);
 
 // exports
 
@@ -3111,6 +3274,10 @@ var routerTransition = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__[
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_company_details_company_details_component__ = __webpack_require__("../../../../../src/app/components/company-details/company-details.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_service_areas_service_areas_component__ = __webpack_require__("../../../../../src/app/components/service-areas/service-areas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/components/reset-password/reset-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_change_password_change_password_component__ = __webpack_require__("../../../../../src/app/components/change-password/change-password.component.ts");
+
+
 
 
 
@@ -3140,6 +3307,14 @@ var routings = [
     {
         path: 'login',
         component: __WEBPACK_IMPORTED_MODULE_1__components_login_login_component__["a" /* LoginComponent */]
+    },
+    {
+        path: 'reset-password',
+        component: __WEBPACK_IMPORTED_MODULE_21__components_reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
+    },
+    {
+        path: 'change-password',
+        component: __WEBPACK_IMPORTED_MODULE_22__components_change_password_change_password_component__["a" /* ChangePasswordComponent */]
     },
     {
         path: 'dashboard',
@@ -3419,6 +3594,33 @@ var AuthService = (function () {
         this.api = api;
         this.utils = utils;
     }
+    AuthService.prototype.changePassword = function (opts) {
+        var data = {
+            "email": opts.email,
+            "newPassword": opts.password,
+            "confirmNewPassword": opts.confirmpassword
+        };
+        if (opts.authToken) {
+            data.authToken = opts.authToken;
+        }
+        else {
+            data.currentPassword = opts.currentPassword;
+        }
+        return this.api.post({
+            url: '/auth/password',
+            data: data,
+            headers: opts.headers
+        });
+    };
+    AuthService.prototype.resetPassword = function (opts) {
+        return this.api.post({
+            url: '/auth/reset',
+            data: {
+                email: opts.email
+            },
+            headers: opts.headers
+        });
+    };
     AuthService.prototype.login = function (login) {
         var opts = {
             url: '/auth/login',
@@ -3541,7 +3743,24 @@ var AuxilaryService = (function () {
         this.region = region;
         this.machine = machine;
         this.environment = __WEBPACK_IMPORTED_MODULE_8__environments_environment__["a" /* environment */];
+        this.API_KEY = 'k2dRFbvCb2gfTdKwsG4oYqcHr8nvENG9';
     }
+    AuxilaryService.prototype.changePassword = function (opts) {
+        var headers = {};
+        if (opts.authToken) {
+            opts.headers = opts.headers || {};
+            opts.headers['X-API-Key'] = this.API_KEY;
+        }
+        return this.auth.changePassword(opts);
+    };
+    AuxilaryService.prototype.resetPassword = function (opts) {
+        return this.auth.resetPassword({
+            email: opts.email,
+            headers: {
+                'X-API-Key': this.API_KEY
+            }
+        });
+    };
     AuxilaryService.prototype.updateUserManufacturers = function (opts) {
         return this.user.updateUserManufacturers(opts);
     };
@@ -4337,7 +4556,7 @@ UtilsService = __decorate([
 var environment = {
     production: false,
     apiUrl: 'https://svd-up-rest-dev.azurewebsites.net/api/v1',
-    preLoad: true
+    preLoad: false
 };
 //# sourceMappingURL=environment.js.map
 
